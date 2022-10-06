@@ -11,7 +11,7 @@ Réalisation d’une calculatrice RPN (notation polonaise inversée) en mode cli
 ### Create an environment
 
 ```
-$ py -3 -m venv venv
+> py -3 -m venv venv
 ```
 ### Activate the environment
 
@@ -23,6 +23,12 @@ $ py -3 -m venv venv
 
 ```
 > pip install -r requirements.txt
+```
+
+### Test
+
+```
+> nose2
 ```
 
 ### Run
