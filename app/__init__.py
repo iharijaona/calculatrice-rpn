@@ -1,3 +1,4 @@
+"""Application factory."""
 from .config import Config
 
 def create_app():
@@ -10,10 +11,7 @@ def create_app():
     app.config.from_object(Config)
     app.config['ERROR_404_HELP'] = False
 
-    from .api.operand import api as op_api
-    from .api.stack import api as stack_api
-
-
+    #: Define the main API entry point
     app_restx = Api(
         app,
         version='1.0',
@@ -23,6 +21,11 @@ def create_app():
         prefix="/",
     )
 
+    #: Import API implementation by namespace
+    from .api.operand import api as op_api
+    from .api.stack import api as stack_api
+
+    #: Mount the API implementation
     app_restx.add_namespace(op_api)
     app_restx.add_namespace(stack_api)
 
