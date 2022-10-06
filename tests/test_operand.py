@@ -32,9 +32,7 @@ class TestViews(TestCase):
             'element': 6
         })
         
-        response = self.client.get(f'/rpn/op/+/stack/{stack.id}', json={
-            'element': 6
-        })
+        response = self.client.get(f'/rpn/op/+/stack/{stack.id}')
 
         returned_stack = response.json
         
